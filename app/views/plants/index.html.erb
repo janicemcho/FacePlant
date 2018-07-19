@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>FacePlant</h1>
+
+<button>
+  <%= link_to 'New Plant', new_plant_path %>
+</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plants.each do |plant| %>
+      <tr>
+        <td>
+          <h3><%= link_to plant.name, plant %></h3>
+        </td>
+        <td><%= link_to 'Edit', edit_plant_path(plant) %></td>
+        <td><%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
